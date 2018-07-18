@@ -1,6 +1,6 @@
 Project Description
 
-In this project, you will implement in Java a Reliable Data Transfer protocol (RDT)  that  provides reliability (and optionally flow control) to applications using it.  The reliability is achieved using the Sliding Window protocol discussed in class. You will first implement the Go-Back-N version with no buffer at the receiver. Then, you will implement the Selective Repeat version.  As a transport protocol, RDT  is supposed to be implemented in the OS Kernel and run directly over the unreliable IP protocol. But that would be too complex, and would require changing the OS code. Instead, RDT will run as an application-layer protocol over UDP, which, anyways, adds very little functionality to IP: checksum and multiplexing/demultiplexing. 
+In this project, you will implement in Java a Reliable Data Transfer protocol (RDT) that provides reliability (and optionally flow control) to applications using it.  The reliability is achieved that using the Sliding Window protocol discussed in class. You will implement the Go-Back-N version with no buffer at the receiver. You will implement the Selective Repeat version.  As a transport protocol, RDT is supposed to be implemented in the OS Kernel and run over the unreliable IP protocol. That would be complex, and would require changing the OS code. Instead, RDT will run as an application-layer protocol over UDP, adds very little functionality to IP: checksum and multiplexing/demultiplexing. 
 
 The following pseudo code shows how an application (sender and receiver) would use RDT.
 
@@ -22,7 +22,7 @@ rdt.close();
  
 Suggested Steps
 
-1.     Download and unzip this source code.  This will create a directory called rdt, which is a java package containing the following classes:
+1.Download and unzip this source code.  This will create a directory called rdt, which is a java package containing the following classes:
 o   RDT.java: contains the RDT class which has the send() and receive() functions called by the application. There are two additional private classes: RDTBuffer and ReceiverThread. RDTBuffer contains a partial implementation of a synchronized shared buffer using counting semaphores.  (Overview of Semaphores in Java) . The ReceiverThread class implements a thread that concurrently runs with the send thread. An instance of the ReceiverThread continually waits on the socket to process the incoming data.
 o   RDTSegment.java:  defines the structure of RDT segments as well as some supporting methods.
 o   TimeoutHandler.java: a class to handle timeouts.
